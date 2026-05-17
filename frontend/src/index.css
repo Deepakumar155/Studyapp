@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #050505;
+  color: #e5e5e5;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply bg-dark-card/50 backdrop-blur-lg border border-dark-border rounded-2xl p-6 transition-all duration-300 hover:border-primary-500/50 hover:shadow-primary-500/10;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-500 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-primary-600/20;
+  }
+
+  .input-field {
+    @apply bg-dark-card border border-dark-border rounded-lg py-2 px-4 focus:outline-none focus:border-primary-500 transition-all duration-300 text-dark-text;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-border rounded-full hover:bg-primary-600/50 transition-all;
+}
+
+/* Transitions */
+.page-transition {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ReactQuill Dark Theme Overrides */
+.quill-dark-theme .ql-toolbar.ql-snow {
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(30, 41, 59, 0.5) !important;
+}
+
+.quill-dark-theme .ql-container.ql-snow {
+  border: none !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.quill-dark-theme .ql-editor {
+  color: #e2e8f0;
+  min-height: 200px;
+}
+
+.quill-dark-theme .ql-editor.ql-blank::before {
+  color: #64748b;
+  font-style: normal;
+}
+
+.quill-dark-theme .ql-snow .ql-stroke { stroke: #cbd5e1; }
+.quill-dark-theme .ql-snow .ql-fill { fill: #cbd5e1; }
+.quill-dark-theme .ql-snow .ql-picker { color: #cbd5e1; }
+.quill-dark-theme .ql-snow .ql-picker-options { background-color: #1e293b; }
